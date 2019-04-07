@@ -2,10 +2,12 @@
 # coding:utf-8
 
 import tornado.web
+from service import my_service
 
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
+        ret = my_service.service_hello(0)
         self.render("../public/index.html")
 
 
