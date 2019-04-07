@@ -1,19 +1,9 @@
 # -*- coding:utf-8 -*-
-import time
-import random
-import urllib2
-import ujson
-from tornado import gen
-from lib import motordb
-from lib import call
-from lib.db import get_redis
-from lib.db import *
-from config import config
-import log
-import hashlib
-import time
-import random
 import sys
+
+from tornado import gen
+
+from lib.db import *
 
 reload(sys)
 sys.setdefaultencoding('utf-8')

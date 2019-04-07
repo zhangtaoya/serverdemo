@@ -1,5 +1,5 @@
-import mongo
-import motordb
+import lib.mongo
+import lib.motordb
 import redis
 from config import config
 import log
@@ -12,4 +12,4 @@ def get_redis(db=0):
 
 
 def get_col_test_my():
-    return motordb.mongo_collection('test', 'my', config.DB_HOST, config.DB_PORT)
+    return lib.motordb.mongo_collection('test', 'my', config.DB_HOST, config.DB_PORT)
