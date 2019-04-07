@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-import tornado.web
 from service import my_service
+from base_handler import BaseHandler
 
 
-class IndexHandler(tornado.web.RequestHandler):
+class IndexHandler(BaseHandler):
     def get(self):
         ret = my_service.service_hello(0)
         self.render("../public/index.html")
 
 
-class LSJHandler(tornado.web.RequestHandler):
+class LSJHandler(BaseHandler):
     def post(self):
         data = open('./public/test.png').read()
         self.write(data)

@@ -10,7 +10,7 @@ import tornado.options
 from tornado.options import define, options
 
 
-from handler.IndexHandler import *
+from handler.index_handler import *
 
 
 tornado.options.define("port", default=8000, help="run on the given port", type=int)

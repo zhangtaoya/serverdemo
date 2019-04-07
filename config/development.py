@@ -2,7 +2,7 @@
 
 """生产环境使用的配置
 """
-
+from config.base import *
 WEB_DEBUG = False
 
 REDIS_HOST = "127.0.0.1"
