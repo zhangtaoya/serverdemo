@@ -1,8 +1,6 @@
 # -*- coding:utf-8 -*-
 import sys
-
 from tornado import gen
-
 from lib.db import *
 
 reload(sys)
