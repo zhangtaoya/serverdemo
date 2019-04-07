@@ -7,10 +7,31 @@ from functools import wraps
 import traceback
 from tornado import web
 from config import err, config, version
+import urllib2
+
 
 WHITE_ERR_MSG_LIST = [
     "shal-lite-op-spi01.in.izuiyou.com"
 ]
+
+
+def ding_msg(cont, at=None, url_robot=None):
+    try:
+        url = config.url_dingding_alarm_notify
+        if url_robot is not None:
+            url = url_robot
+
+        cont = {"msgtype": "text", "text": {"content": cont}, "at": {
+            "atMobiles": at,
+            "isAtAll": False
+        }}
+        hd = {'Content-Type': 'application/json'}
+        req = urllib2.Request(url, ujson.dumps(cont), headers=hd)
+        resp = urllib2.urlopen(req, timeout=0.5).read()
+    except Exception as e:
+        logging.error("ding msg failed, except:%s" % str(e))
+        return False
+    return True
 
 
 def service_crash_alarm(url, msg):
